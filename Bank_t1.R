@@ -432,6 +432,31 @@ log_us %>%  ggplot() + aes(Name_of_variable,Overall) +
 2. Important variables - duration,contact,month,poutcome,housing.
 
 #--------------------------------------------------------Support Vector Machine----------------------------------------------
+library(e1071) # Misc Functions of the Department of Statistics, Probability Theory Group (Formerly: E1071), TU Wien
+
+library(rminer)
+library(randomForest)
+library(caret)
+require(rminer)
+s_fit <- fit(y~.,data = Training_Set,model="svm",task="class")
+p_svm <- predict(s_fit,Training_Set,type = 'class')
+confusionMatrix(Training_Set$y,p_svm)
+plot(roc(Training_Set$y,as.numeric(p_svm)),print.auc = TRUE)
+
+p_svm_test <- predict(s_fit,Test_Set,type = 'class')
+confusionMatrix(Test_Set$y,p_svm_test)
+plot(roc(Test_Set$y,as.numeric(p_svm_test)),print.auc = TRUE)
+
+#plotting important variable from training_set
+svm_imp <- Importance(s_fit,Training_Set)
+str(svm_imp)
+t(svm_imp$imp)
+svm_imp$sresponses
+
+L=list(runs=1,sen=t(svm_imp$imp),sresponses=svm_imp$sresponses)
+mgraph(L,graph="IMP",leg=names(Training_Set),col="gray",Grid=10)
+
+#OverSample
 s_fit_os <- fit(y~.,data = Training_Set_Oversample,model="svm",task="class")
 p_svm_os <- predict(s_fit_os,Training_Set_Oversample,type = 'class')
 confusionMatrix(Training_Set_Oversample$y,p_svm_os)
@@ -448,6 +473,27 @@ svm_imp_os$sresponses
 
 L=list(runs=1,sen=t(svm_imp_os$imp),sresponses=svm_imp_os$sresponses)
 mgraph(L,graph="IMP",leg=names(Training_Set_Oversample),col="gray",Grid=10)
+
+#UnderSample
+s_fit_us <- fit(y~.,data = Training_Set_Undersample,model="svm",task="class")
+p_svm_us <- predict(s_fit_us,Training_Set_Undersample,type = 'class')
+confusionMatrix(Training_Set_Undersample$y,p_svm_us)
+plot(roc(Training_Set_Undersample$y,as.numeric(p_svm_us)),print.auc = TRUE)
+
+p_svm_test_us <- predict(s_fit_us,Test_Set_Undersample,type = 'class')
+confusionMatrix(Test_Set_Undersample$y,p_svm_test_us)
+plot(roc(Test_Set_Undersample$y,as.numeric(p_svm_test_us)),print.auc = TRUE)
+svm_imp_us <- Importance(s_fit_us,Training_Set_Undersample)
+
+str(svm_imp_us)
+t(svm_imp_us$imp)
+svm_imp_us$sresponses
+
+L=list(runs=1,sen=t(svm_imp_us$imp),sresponses=svm_imp_us$sresponses)
+mgraph(L,graph="IMP",leg=names(Training_Set_Undersample),col="gray",Grid=10)
+
+
+
 
 #Address Overfitting problem by running first on training set and then test set
 
