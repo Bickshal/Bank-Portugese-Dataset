@@ -200,32 +200,32 @@ The most common of all classification methodologies , is the decision tree. It w
     ## 
     ##           Reference
     ## Prediction    no   yes
-    ##        no  17698  1834
-    ##        yes   847  1328
-    ##                                          
-    ##                Accuracy : 0.8765         
-    ##                  95% CI : (0.872, 0.8808)
-    ##     No Information Rate : 0.8543         
-    ##     P-Value [Acc > NIR] : < 2.2e-16      
-    ##                                          
-    ##                   Kappa : 0.43           
-    ##  Mcnemar's Test P-Value : < 2.2e-16      
-    ##                                          
-    ##             Sensitivity : 0.9543         
-    ##             Specificity : 0.4200         
-    ##          Pos Pred Value : 0.9061         
-    ##          Neg Pred Value : 0.6106         
-    ##              Prevalence : 0.8543         
-    ##          Detection Rate : 0.8153         
-    ##    Detection Prevalence : 0.8998         
-    ##       Balanced Accuracy : 0.6872         
-    ##                                          
-    ##        'Positive' Class : no             
+    ##        no  17683  1944
+    ##        yes   776  1304
+    ##                                           
+    ##                Accuracy : 0.8747          
+    ##                  95% CI : (0.8702, 0.8791)
+    ##     No Information Rate : 0.8504          
+    ##     P-Value [Acc > NIR] : < 2.2e-16       
+    ##                                           
+    ##                   Kappa : 0.422           
+    ##  Mcnemar's Test P-Value : < 2.2e-16       
+    ##                                           
+    ##             Sensitivity : 0.9580          
+    ##             Specificity : 0.4015          
+    ##          Pos Pred Value : 0.9010          
+    ##          Neg Pred Value : 0.6269          
+    ##              Prevalence : 0.8504          
+    ##          Detection Rate : 0.8146          
+    ##    Detection Prevalence : 0.9042          
+    ##       Balanced Accuracy : 0.6797          
+    ##                                           
+    ##        'Positive' Class : no              
     ## 
 
 ![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-11-1.png)
 
-    ## Area under the curve (AUC): 0.687
+    ## Area under the curve (AUC): 0.680
 
 **Model Performance with Testing Set**
 
@@ -233,38 +233,345 @@ The most common of all classification methodologies , is the decision tree. It w
     ## 
     ##           Reference
     ## Prediction   no  yes
-    ##        no  7540  823
-    ##        yes  398  543
+    ##        no  7655  765
+    ##        yes  369  515
     ##                                           
-    ##                Accuracy : 0.8688          
-    ##                  95% CI : (0.8617, 0.8756)
-    ##     No Information Rate : 0.8532          
-    ##     P-Value [Acc > NIR] : 8.77e-06        
+    ##                Accuracy : 0.8781          
+    ##                  95% CI : (0.8713, 0.8847)
+    ##     No Information Rate : 0.8624          
+    ##     P-Value [Acc > NIR] : 4.314e-06       
     ##                                           
-    ##                   Kappa : 0.3987          
+    ##                   Kappa : 0.4096          
     ##  Mcnemar's Test P-Value : < 2.2e-16       
     ##                                           
-    ##             Sensitivity : 0.9499          
-    ##             Specificity : 0.3975          
-    ##          Pos Pred Value : 0.9016          
-    ##          Neg Pred Value : 0.5770          
-    ##              Prevalence : 0.8532          
-    ##          Detection Rate : 0.8104          
-    ##    Detection Prevalence : 0.8989          
-    ##       Balanced Accuracy : 0.6737          
+    ##             Sensitivity : 0.9540          
+    ##             Specificity : 0.4023          
+    ##          Pos Pred Value : 0.9091          
+    ##          Neg Pred Value : 0.5826          
+    ##              Prevalence : 0.8624          
+    ##          Detection Rate : 0.8228          
+    ##    Detection Prevalence : 0.9050          
+    ##       Balanced Accuracy : 0.6782          
     ##                                           
     ##        'Positive' Class : no              
     ## 
 
 ![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-12-1.png)
 
-    ## Area under the curve (AUC): 0.674
+    ## Area under the curve (AUC): 0.678
 
 **Observations:**
 
 From the above graphs:
 1. The AUC is 0.695, when the model is run on the Test Set.
-2. The TRUE positive Rate is 0.5770457.
+2. The TRUE positive Rate is 0.5825792.
 3. The important attributes observed are as shown in the chart below.
 
 ![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-13-1.png)
+
+2. Random Forest
+================
+
+In this mode, multiple trees are grown as opposed to a single tree. The tree with the most votes is chosen by the model.
+
+    ## randomForest 4.6-12
+
+    ## Type rfNews() to see new features/changes/bug fixes.
+
+    ## 
+    ## Attaching package: 'randomForest'
+
+    ## The following object is masked from 'package:ggplot2':
+    ## 
+    ##     margin
+
+    ## The following object is masked from 'package:dplyr':
+    ## 
+    ##     combine
+
+    ## Confusion Matrix and Statistics
+    ## 
+    ##           Reference
+    ## Prediction    no   yes
+    ##        no  18459    63
+    ##        yes     0  3185
+    ##                                           
+    ##                Accuracy : 0.9971          
+    ##                  95% CI : (0.9963, 0.9978)
+    ##     No Information Rate : 0.8504          
+    ##     P-Value [Acc > NIR] : < 2.2e-16       
+    ##                                           
+    ##                   Kappa : 0.9885          
+    ##  Mcnemar's Test P-Value : 5.662e-15       
+    ##                                           
+    ##             Sensitivity : 1.0000          
+    ##             Specificity : 0.9806          
+    ##          Pos Pred Value : 0.9966          
+    ##          Neg Pred Value : 1.0000          
+    ##              Prevalence : 0.8504          
+    ##          Detection Rate : 0.8504          
+    ##    Detection Prevalence : 0.8533          
+    ##       Balanced Accuracy : 0.9903          
+    ##                                           
+    ##        'Positive' Class : no              
+    ## 
+
+![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-14-1.png)
+
+    ## Area under the curve (AUC): 0.990
+
+    ## Confusion Matrix and Statistics
+    ## 
+    ##           Reference
+    ## Prediction   no  yes
+    ##        no  7614  657
+    ##        yes  410  623
+    ##                                           
+    ##                Accuracy : 0.8853          
+    ##                  95% CI : (0.8787, 0.8917)
+    ##     No Information Rate : 0.8624          
+    ##     P-Value [Acc > NIR] : 2.823e-11       
+    ##                                           
+    ##                   Kappa : 0.4741          
+    ##  Mcnemar's Test P-Value : 5.035e-14       
+    ##                                           
+    ##             Sensitivity : 0.9489          
+    ##             Specificity : 0.4867          
+    ##          Pos Pred Value : 0.9206          
+    ##          Neg Pred Value : 0.6031          
+    ##              Prevalence : 0.8624          
+    ##          Detection Rate : 0.8184          
+    ##    Detection Prevalence : 0.8890          
+    ##       Balanced Accuracy : 0.7178          
+    ##                                           
+    ##        'Positive' Class : no              
+    ## 
+
+![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-14-2.png)
+
+    ## Area under the curve (AUC): 0.718
+
+**Observations:**
+
+From the above graphs:
+1. The AUC is 0.712, when the model is run on the Test Set.
+2. The TRUE positive Rate is 0.6030978.
+3. The important attributes observed are as shown in the chart below.
+
+![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-15-1.png)
+
+3. Support Vector Machines
+==========================
+
+In this algorithm, we plot each data item as a point in n-dimensional space (where n is number of features you have) with the value of each feature being the value of a particular coordinate. Then, we perform classification by finding the hyper-plane that differentiate the two classes very well. Support Vectors are simply the co-ordinates of individual observation. Support Vector Machine is a frontier which best segregates the two classes (hyper-plane/ line).
+
+    ## Confusion Matrix and Statistics
+    ## 
+    ##           Reference
+    ## Prediction    no   yes
+    ##        no  18005  1924
+    ##        yes   454  1324
+    ##                                           
+    ##                Accuracy : 0.8905          
+    ##                  95% CI : (0.8862, 0.8946)
+    ##     No Information Rate : 0.8504          
+    ##     P-Value [Acc > NIR] : < 2.2e-16       
+    ##                                           
+    ##                   Kappa : 0.4708          
+    ##  Mcnemar's Test P-Value : < 2.2e-16       
+    ##                                           
+    ##             Sensitivity : 0.9754          
+    ##             Specificity : 0.4076          
+    ##          Pos Pred Value : 0.9035          
+    ##          Neg Pred Value : 0.7447          
+    ##              Prevalence : 0.8504          
+    ##          Detection Rate : 0.8295          
+    ##    Detection Prevalence : 0.9181          
+    ##       Balanced Accuracy : 0.6915          
+    ##                                           
+    ##        'Positive' Class : no              
+    ## 
+
+![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-16-1.png)
+
+    ## Area under the curve (AUC): 0.692
+
+    ## Confusion Matrix and Statistics
+    ## 
+    ##           Reference
+    ## Prediction   no  yes
+    ##        no  7773  840
+    ##        yes  251  440
+    ##                                          
+    ##                Accuracy : 0.8827         
+    ##                  95% CI : (0.876, 0.8892)
+    ##     No Information Rate : 0.8624         
+    ##     P-Value [Acc > NIR] : 3.415e-09      
+    ##                                          
+    ##                   Kappa : 0.3874         
+    ##  Mcnemar's Test P-Value : < 2.2e-16      
+    ##                                          
+    ##             Sensitivity : 0.9687         
+    ##             Specificity : 0.3438         
+    ##          Pos Pred Value : 0.9025         
+    ##          Neg Pred Value : 0.6368         
+    ##              Prevalence : 0.8624         
+    ##          Detection Rate : 0.8354         
+    ##    Detection Prevalence : 0.9257         
+    ##       Balanced Accuracy : 0.6562         
+    ##                                          
+    ##        'Positive' Class : no             
+    ## 
+
+![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-16-2.png)
+
+    ## Area under the curve (AUC): 0.656
+
+**Observations:**
+
+From the above graphs:
+1. The AUC is 0.650, when the model is run on the Test Set.
+2. The TRUE positive Rate is 0.6367583.
+3. The important attributes observed are as shown in the chart below.
+
+![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-17-1.png)
+
+4. Logistic Regression
+======================
+
+Logistic Regression is a special case of Linear Regression , where outcome is categorical binary outcome
+
+    ## 
+    ## Call:
+    ## glm(formula = y ~ ., family = binomial, data = Training_Set)
+    ## 
+    ## Deviance Residuals: 
+    ##     Min       1Q   Median       3Q      Max  
+    ## -5.6824  -0.4584  -0.3123  -0.1979   3.0236  
+    ## 
+    ## Coefficients:
+    ##                      Estimate Std. Error z value Pr(>|z|)    
+    ## (Intercept)        -2.483e+00  2.031e-01 -12.221  < 2e-16 ***
+    ## age                 1.725e-03  2.767e-03   0.623 0.533069    
+    ## jobblue-collar     -4.753e-01  9.509e-02  -4.998 5.78e-07 ***
+    ## jobentrepreneur    -5.341e-01  1.614e-01  -3.310 0.000932 ***
+    ## jobhousemaid       -4.578e-01  1.687e-01  -2.714 0.006643 ** 
+    ## jobmanagement      -2.317e-01  9.040e-02  -2.563 0.010387 *  
+    ## jobretired          2.657e-01  1.211e-01   2.195 0.028168 *  
+    ## jobself-employed   -2.495e-01  1.386e-01  -1.800 0.071921 .  
+    ## jobservices        -3.194e-01  1.082e-01  -2.953 0.003150 ** 
+    ## jobstudent          3.883e-01  1.343e-01   2.892 0.003834 ** 
+    ## jobtechnician      -2.251e-01  8.565e-02  -2.628 0.008577 ** 
+    ## jobunemployed      -2.000e-01  1.386e-01  -1.443 0.149040    
+    ## jobunknown         -5.744e-01  4.154e-01  -1.383 0.166760    
+    ## maritalmarried     -1.628e-04  7.670e-02  -0.002 0.998306    
+    ## maritalsingle       1.891e-01  8.704e-02   2.173 0.029784 *  
+    ## educationsecondary  2.022e-01  8.275e-02   2.443 0.014557 *  
+    ## educationtertiary   4.690e-01  9.482e-02   4.947 7.55e-07 ***
+    ## defaultyes         -3.069e-01  2.406e-01  -1.276 0.201988    
+    ## balance             1.813e-05  6.313e-06   2.873 0.004069 ** 
+    ## housingyes         -9.322e-01  5.551e-02 -16.794  < 2e-16 ***
+    ## loanyes            -5.092e-01  7.653e-02  -6.653 2.87e-11 ***
+    ## contacttelephone   -2.247e-01  9.044e-02  -2.485 0.012967 *  
+    ## day                 7.606e-03  3.155e-03   2.410 0.015935 *  
+    ## monthaug           -6.913e-01  9.324e-02  -7.414 1.22e-13 ***
+    ## monthdec            9.825e-01  2.014e-01   4.878 1.07e-06 ***
+    ## monthfeb           -1.626e-01  1.066e-01  -1.525 0.127150    
+    ## monthjan           -1.152e+00  1.443e-01  -7.983 1.43e-15 ***
+    ## monthjul           -8.490e-01  9.266e-02  -9.163  < 2e-16 ***
+    ## monthjun            9.821e-01  1.232e-01   7.969 1.60e-15 ***
+    ## monthmar            1.690e+00  1.443e-01  11.716  < 2e-16 ***
+    ## monthmay           -3.468e-01  8.801e-02  -3.940 8.14e-05 ***
+    ## monthnov           -8.486e-01  1.004e-01  -8.451  < 2e-16 ***
+    ## monthoct            8.862e-01  1.253e-01   7.071 1.54e-12 ***
+    ## monthsep            1.051e+00  1.399e-01   7.515 5.71e-14 ***
+    ## duration            4.110e-03  8.756e-05  46.934  < 2e-16 ***
+    ## campaign           -1.183e-01  1.364e-02  -8.677  < 2e-16 ***
+    ## pdays               1.227e-03  2.262e-04   5.423 5.87e-08 ***
+    ## previous            5.558e-02  1.004e-02   5.534 3.13e-08 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## (Dispersion parameter for binomial family taken to be 1)
+    ## 
+    ##     Null deviance: 18324  on 21706  degrees of freedom
+    ## Residual deviance: 13199  on 21669  degrees of freedom
+    ## AIC: 13275
+    ## 
+    ## Number of Fisher Scoring iterations: 6
+
+    ## Confusion Matrix and Statistics
+    ## 
+    ##           Reference
+    ## Prediction    no   yes
+    ##        no  17829  2241
+    ##        yes   630  1007
+    ##                                           
+    ##                Accuracy : 0.8677          
+    ##                  95% CI : (0.8632, 0.8722)
+    ##     No Information Rate : 0.8504          
+    ##     P-Value [Acc > NIR] : 1.644e-13       
+    ##                                           
+    ##                   Kappa : 0.3468          
+    ##  Mcnemar's Test P-Value : < 2.2e-16       
+    ##                                           
+    ##             Sensitivity : 0.9659          
+    ##             Specificity : 0.3100          
+    ##          Pos Pred Value : 0.8883          
+    ##          Neg Pred Value : 0.6151          
+    ##              Prevalence : 0.8504          
+    ##          Detection Rate : 0.8213          
+    ##    Detection Prevalence : 0.9246          
+    ##       Balanced Accuracy : 0.6380          
+    ##                                           
+    ##        'Positive' Class : no              
+    ## 
+
+![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-18-1.png)
+
+    ## Area under the curve (AUC): 0.638
+
+    ## Confusion Matrix and Statistics
+    ## 
+    ##           Reference
+    ## Prediction   no  yes
+    ##        no  7755  889
+    ##        yes  269  391
+    ##                                           
+    ##                Accuracy : 0.8755          
+    ##                  95% CI : (0.8687, 0.8822)
+    ##     No Information Rate : 0.8624          
+    ##     P-Value [Acc > NIR] : 0.0001061       
+    ##                                           
+    ##                   Kappa : 0.3414          
+    ##  Mcnemar's Test P-Value : < 2.2e-16       
+    ##                                           
+    ##             Sensitivity : 0.9665          
+    ##             Specificity : 0.3055          
+    ##          Pos Pred Value : 0.8972          
+    ##          Neg Pred Value : 0.5924          
+    ##              Prevalence : 0.8624          
+    ##          Detection Rate : 0.8335          
+    ##    Detection Prevalence : 0.9291          
+    ##       Balanced Accuracy : 0.6360          
+    ##                                           
+    ##        'Positive' Class : no              
+    ## 
+
+![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-18-2.png)
+
+    ## Area under the curve (AUC): 0.636
+
+**Observations:**
+
+From the above graphs:
+1. The AUC is 0.650, when the model is run on the Test Set.
+2. The TRUE positive Rate is 0.5924242.
+3. The important attributes observed are as shown in the chart below.
+
+![](Bank_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-19-1.png)
+
+Conclusions:
+============
+
+Fromt all the four classifications models , we get
